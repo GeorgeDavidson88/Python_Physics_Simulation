@@ -69,7 +69,6 @@ def sagment(colour, mass, elasticity, friction, radius, start_pos, end_pos, body
     shape.friction = friction
 
     space.add(body, shape)
-    return body
 
 
 def pivot(mass, friction, radius, length_left, length_right, pos):
@@ -100,7 +99,6 @@ def main():
     rect(BLACK, 1, 0.8, 0.4, 24, WIN_HEIGHT,
          WIN_WIDTH - 12, WIN_HEIGHT / 2, pymunk.Body.STATIC)
 
-    # sagments
     sagment(RED, 100, 0.8, 0.4, 10, (48, 144), (222, 170), pymunk.Body.STATIC)
     sagment(RED, 100, 0.8, 0.4, 10, (180, 255), (365, 198), pymunk.Body.STATIC)
     sagment(RED, 100, 0.8, 0.4, 10, (48, 274), (222, 331), pymunk.Body.STATIC)
@@ -122,62 +120,53 @@ def main():
             (502, 640), pymunk.Body.STATIC)
     sagment(BLACK, 100, 0.8, 0.4, 10, (0, 740),
             (900, WIN_HEIGHT), pymunk.Body.STATIC)
+    sagment(BLACK, 100, 0.8, 0.4, 10, (WIN_WIDTH - 24, 340),
+            (WIN_WIDTH - 32, 340), pymunk.Body.STATIC)
+    sagment(BLACK, 100, 0.8, 0.4, 10, (WIN_WIDTH, 300),
+            (WIN_WIDTH - 20, 200), pymunk.Body.STATIC)
 
     circle(WHITE, math.pi * 16 ** 2, 0.8, 0.4, 16, 64, 28, pymunk.Body.DYNAMIC)
-    circle(WHITE, math.pi * 32 ** 2, 1, 0.4, 32, 685, 110, pymunk.Body.DYNAMIC)
-    circle(WHITE, math.pi * 26 ** 2, 1, 0.4, 26, 120, 443, pymunk.Body.DYNAMIC)
-    circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, 740, 380, pymunk.Body.STATIC)
-    circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, 769, 425, pymunk.Body.STATIC)
-    circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, 730, 480, pymunk.Body.STATIC)
-    circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, 769, 525, pymunk.Body.STATIC)
-    circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, 730, 580, pymunk.Body.STATIC)
-    circle(WHITE, math.pi * 32 ** 2, 0.8, 0.4, 32,
-           WIN_WIDTH - 24, 360, pymunk.Body.STATIC)
+    circle(WHITE, math.pi * 32 ** 2, 0.8, 0.4,
+           32, 685, 110, pymunk.Body.DYNAMIC)
+    circle(WHITE, math.pi * 26 ** 2, 0.8, 0.4,
+           26, 120, 443, pymunk.Body.DYNAMIC)
 
-    rect(BLUE, math.pi * (12 * 64) ** 2, 0.4, 1,
-         12, 64, 349, 294, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 96) ** 2, 0.4, 1,
-         12, 96, 397, 294, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 128) ** 2, 0.4, 1,
-         12, 128, 445, 294, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 160) ** 2, 0.4, 1,
-         12, 160, 493, 246, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 192) ** 2, 0.4, 1,
-         12, 192, 541, 246, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 224) ** 2, 0.4, 1,
-         12, 224, 589, 200, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 590, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 542, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 494, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 446, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 398, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 350, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 302, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 254, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 206, 434, pymunk.Body.DYNAMIC)
-    rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
-         12, 64, 158, 434, pymunk.Body.DYNAMIC)
+    x = 740
+    y = 380
+    z = 30
+    for i in range(5):
+        circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, x, y, pymunk.Body.STATIC)
+        z = z * -1
+        x = x - z
+        y = y + 48
 
-    pivot(10000, 0.8, 5, (-194, 0), (194, 0), (977, 290))
-    pivot(1000, 0.8, 5, (-62, 0), (125, 0), (140, 600))
+    x = 300
+    y = 294
+    z = 64
+    for i in range(6):
+        x = x + 48
+        z = z + 32
+        y = y - 20
+        rect(BLUE, math.pi * (12 * 64) ** 2, 0.4,
+             1, 12, z, x, y, pymunk.Body.DYNAMIC)
+
+    x = 637
+    for i in range(10):
+        x = x - 48
+        rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
+             12, 64, x, 434, pymunk.Body.DYNAMIC)
+
+    pivot(10000, 0.8, 5, (-194, 0), (194, 0), (977, 300))
+    pivot(1000, 0.8, 5, (-60, 0), (125, 0), (140, 600))
     pivot(1000, 0.8, 5, (-100, 0), (100, 0), (340, 586))
 
     for i in range(25):
         circle((random.randint(0, 255), random.randint(0, 255), random.randint(
-            0, 255), 255), 10, 0.8, 0.4, 8, WIN_WIDTH - 48, 48, pymunk.Body.DYNAMIC)
+            0, 255), 255), 10, 0.4, 1, 8, WIN_WIDTH - 48, 48, pymunk.Body.DYNAMIC)
 
-    for i in range(25):
+    for i in range(24):
         circle((random.randint(0, 255), random.randint(0, 255), random.randint(
-            0, 255), 255), 10, 0.8, 0.4, 8, 244, 500, pymunk.Body.DYNAMIC)
+            0, 255), 255), 10, 0.4, 0.4, 8, 244, 500, pymunk.Body.DYNAMIC)
 
     while True:
         for event in pygame.event.get():
