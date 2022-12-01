@@ -1,10 +1,11 @@
-import pymunk.pygame_util
-import pymunk
-import pygame
-import random
 import math
-import sys
 import os
+import random
+import sys
+
+import pygame
+import pymunk
+import pymunk.pygame_util
 
 pygame.init()
 
@@ -134,7 +135,7 @@ def main():
     x = 740
     y = 380
     z = 30
-    for i in range(5):
+    for _ in range(5):
         circle(BLACK, math.pi * 8 ** 2, 0.8, 0.4, 8, x, y, pymunk.Body.STATIC)
         z = z * -1
         x = x - z
@@ -143,7 +144,7 @@ def main():
     x = 300
     y = 294
     z = 64
-    for i in range(6):
+    for _ in range(6):
         x = x + 48
         z = z + 32
         y = y - 20
@@ -151,7 +152,7 @@ def main():
              1, 12, z, x, y, pymunk.Body.DYNAMIC)
 
     x = 637
-    for i in range(10):
+    for _ in range(10):
         x = x - 48
         rect(BLUE, math.pi * (12 * 32) ** 2, 0.4, 1,
              12, 64, x, 434, pymunk.Body.DYNAMIC)
@@ -160,11 +161,11 @@ def main():
     pivot(1000, 0.8, 5, (-60, 0), (125, 0), (140, 600))
     pivot(1000, 0.8, 5, (-100, 0), (100, 0), (340, 586))
 
-    for i in range(25):
+    for _ in range(25):
         circle((random.randint(0, 255), random.randint(0, 255), random.randint(
             0, 255), 255), 10, 0.4, 1, 8, WIN_WIDTH - 48, 48, pymunk.Body.DYNAMIC)
 
-    for i in range(24):
+    for _ in range(24):
         circle((random.randint(0, 255), random.randint(0, 255), random.randint(
             0, 255), 255), 10, 0.4, 0.4, 8, 244, 500, pymunk.Body.DYNAMIC)
 
