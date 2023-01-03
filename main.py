@@ -176,13 +176,13 @@ def main():
                 pygame.quit()
                 sys.exit()
 
-        WIN.fill(GRAY)  # draw the background
+        WIN.fill(GRAY)  # Background Colour
 
-        space.step(0.002)  # updating the physics
+        space.step(0.002)  # Updating Physics
 
-        space.debug_draw(draw_options)  # drawing the shapes
+        space.debug_draw(draw_options)  # Drawing the Shapes
 
-        pygame.display.update()  # updating the display
+        pygame.display.update()  # Updating the Display
 
 
 if __name__ == "__main__":
