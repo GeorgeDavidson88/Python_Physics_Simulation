@@ -9,28 +9,28 @@ import pymunk.pygame_util
 
 pygame.init()
 
-# display settings
 WIN_WIDTH = 1200
 WIN_HEIGHT = 816
-WIN = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+WIN = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))  # Window Size
 
-pygame.display.set_caption("Physic Simulation")
+pygame.display.set_caption("Physic Simulation")  # Window Title
 
-pygame.display.set_icon(pygame.image.load(
-    os.path.join("graphics", "atom.png")).convert_alpha())
+pygame.display.set_icon(pygame.image.load(os.path.join(
+    "graphics", "atom.png")).convert_alpha())  # Window Icon
 
-# colors
+# Colours
 WHITE = (255, 255, 255, 255)
 RED = (255, 0, 0, 255)
 BLUE = (0, 0, 255, 255)
 GRAY = (48, 48, 48, 255)
 BLACK = (0, 0, 0, 255)
 
-# setting up space
+# Set this to true and see what happens.
 pymunk.pygame_util.positive_y_is_up = False
-space = pymunk.Space()
-space.gravity = (0, 781)
+space = pymunk.Space()  # Set up the space.
+space.gravity = (0, 781)  # The gravity of the space.
 
+# Use Pygame to draw shapes.
 draw_options = pymunk.pygame_util.DrawOptions(WIN)
 
 
@@ -90,7 +90,7 @@ def pivot(mass, friction, radius, length_left, length_right, pos):
 
 def main():
 
-    # windown borders
+    # Window Boarders
     rect(BLACK, 1, 0.8, 0.4, WIN_WIDTH, 24,
          WIN_WIDTH / 2, WIN_HEIGHT - 12, pymunk.Body.STATIC)
     rect(BLACK, 1, 0.8, 0.4, WIN_WIDTH,
@@ -132,6 +132,7 @@ def main():
     circle(WHITE, math.pi * 26 ** 2, 0.8, 0.4,
            26, 120, 443, pymunk.Body.DYNAMIC)
 
+    # This code :(
     x = 740
     y = 380
     z = 30
