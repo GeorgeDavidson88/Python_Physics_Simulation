@@ -1,4 +1,4 @@
-# Physics Simulation
+# Physics-Simulation
 
 A physics simulation made with pymunk and pygame.
 
