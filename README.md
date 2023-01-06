@@ -1,6 +1,6 @@
 # Physics Simulation
 
-A Rube Goldberg machine made with pymunk and pygame.
+A physics simulation made with pymunk and pygame.
 
 ![simulation.png](README.assets/simulation.png)
 
